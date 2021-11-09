@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: Mulish,Avenir Next,Trebuchet MS,sans-serif;
+    font-weight: 400
+}
+
+:root{
+    --background-color: rgb(123,255,240);
+    --background-button:rgb(58,54,228) ;
+    --text-button: rgb(238,251,255);
+    --text-color: #221e46;
+}
+
+.app{
+    width: 100%;
+    overflow-x:hidden;
+    position: relative;
+    overflow-y: hidden
+}
+
+@import url('./home.css');
+@import url('./edit.css');
+@import url('./faceswap.css');

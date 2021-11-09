@@ -1,0 +1,63 @@
+.edit{
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+.edit__title{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 3.2rem;
+    
+}
+
+.dropzone{
+    position: relative;
+    width: 50%;
+    border: 4px solid var(--background-color);
+    display: flex;
+    margin: auto;
+    border-style:dashed;
+    
+    min-height: 500px;
+
+}
+
+.dropzone__text{
+    display: flex;
+    margin: auto;
+    font-size: 2rem;
+}
+
+.image__edit-action{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  
+}
+
+.image__editing{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.image__edit-button{
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px 30px;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--background-button);
+    color: var(--text-button);
+}
+
+.image__edit-button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
