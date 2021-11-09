@@ -17,7 +17,7 @@ const editImage = (image, done) => {
     });
 
     editor.on("close", () => {
-      
+
     });
 
     editor.on("process", ({ dest, imageState }) => {
@@ -43,15 +43,15 @@ const EditImage = () => {
         },
     });
 
-    useEffect(()=>{
+    useEffect(() => {
         AOS.init({
             duration: 1000
         })
-    },[])
+    }, [])
 
     const thumbs = files.map((file, index) => (
         <div key={file.name} className="image__edit-action">
-            <img src={file.preview} className="image__editing" alt="" />
+            <img src={file.preview} className="image__editing" alt="" id="imageDownload" />
             <button className="image__edit-button"
                 onClick={() =>
                     editImage(file, (output) => {
@@ -77,14 +77,38 @@ const EditImage = () => {
         [files]
     );
 
+    const downloadImage = async () => {
+        var canvas = await document.createElement('canvas');
+        var ctx = await canvas.getContext('2d');
+        var img = await document.getElementById("imageDownload");
+        canvas.width = img.width
+        canvas.height = img.height
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        var data = canvas.toDataURL("image/png")
+        window.location.href = data
+        var a = document.createElement('a');
+        a.href = data;
+        a.download = 'download.png';
+        document.body.appendChild(a);
+        a.click();
+    }
+
     return (
         <div className="edit">
             <div className="edit__title" data-aos="flip-right">Let's start editing image</div>
-            <div data-aos="flip-up" {...getRootProps({ className: "dropzone" })}>
-                <input {...getInputProps()} className="edit__input-image" />
-                <div className="dropzone__text">Select image from your computer</div>
-                {thumbs}
-            </div>
+            {
+                files[0] ? thumbs :
+                    <div data-aos="flip-up" {...getRootProps({ className: "dropzone" })}>
+                        <input {...getInputProps()} className="edit__input-image" />
+                        <div className="dropzone__text">Select image from your computer</div>
+                    </div>
+            }
+            {
+                 files[0] &&  <button className="edit__download" onClick={downloadImage}>Download</button>
+            }
+       
+          
+
         </div>
     );
 }
