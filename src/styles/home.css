@@ -209,10 +209,12 @@
     box-shadow: 0 0 1px rgb(6, 6, 95);
     opacity: 0.8;
 }
-
-a {
+.social__link {
+    color: blue;
+}
+a{
     text-decoration: none;
-    color: var(--text-button)
+    color: var(--text-button) 
 }
 
 @media (max-width: 1240px) {

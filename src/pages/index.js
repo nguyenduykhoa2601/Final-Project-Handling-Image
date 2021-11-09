@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos'
 
 import PreviewImg from '../images/preview.jpg'
+import InfoImg1 from '../images/info1.jpg'
+import InfoImg2 from '../images/info2.jpg'
 
 import "aos/dist/aos.css"
 
@@ -67,35 +69,44 @@ const Home = () => {
             </div>
             <ul className="home__info-list">
                 <li className="home__info-item" data-aos="fade-up">
-                    <img className="home__info-item-img" src="https://www.befunky.com/images/prismic/15c58e21a80fd14a0518b9d0640305eb479379a5_landing-photo-editor-img-2.png?auto=webp&format=jpg&width=1000" alt="" />
+                    <img className="home__info-item-img" src={InfoImg1} alt="" />
                     <div className="home__info-detail">
                         <div className="home__info-title">
-                            It's Fun
+                            Our Team
                         </div>
                         <div className="home__info-main">
-                            Fun is literally BeFunky's middle name (no, really! be-FUN-ky) With BeFunky's Photo Editor, you can play with hundreds of amazing photo effects that you can't find anywhere else, like our world-famous Cartoonizer®, oil painting, and Digital Art effects. You can also add extra flair to your photo with our huge library of customizable graphics, frames, overlays, and textures. And if adding text to photos is your thing, our Photo Editor has tons of fonts for you to choose from, including access to Google Fonts and any of the fonts stored on your computer! Taking pictures is fun – shouldn't your photo editor be fun, too?
+                            Our team consists of 2 members including Khoa and Phu.
+                            The work is divided equally by two members, namely: <br />
+                            Khoa is responsible for designing website interfaces, composing word and powerpoint respectively. Also build functions in python in the face swap function. <br />
+                            Phu builds face swap functions, builds APIs with Flask Python, composes word and powerpoint respectively. <br />
+                            UI/UX finished within 2 days, functions such as image processing completed within 2 days, getting API animation completed within one week. <br />
+                            The project is managed on <a href="https://github.com/nguyenduykhoa2601/Final-Project-Handling-Image" className="social__link">Github</a> and deployed on <a href="https://www.netlify.com/" className="social__link">Netlify</a>.
                         </div>
                     </div>
                 </li>
                 <li className="home__info-item">
-                    <img className="home__info-item-img" data-aos="fade-left" src="https://www.befunky.com/images/prismic/15c58e21a80fd14a0518b9d0640305eb479379a5_landing-photo-editor-img-2.png?auto=webp&format=jpg&width=1000" alt="" />
+                    <img className="home__info-item-img" data-aos="fade-left" src="https://www.befunky.com/images/prismic/423b33b385705b89ceb6600702953e6cc0ae961b_landing-photo-editor-img-5.png?auto=webp&format=jpg&width=700&bg-color=FAFAFA" alt="" />
                     <div className="home__info-detail" data-aos="fade-right">
                         <div className="home__info-title">
-                            It's Fun
+                            What's about
                         </div>
                         <div className="home__info-main">
-                            Fun is literally BeFunky's middle name (no, really! be-FUN-ky) With BeFunky's Photo Editor, you can play with hundreds of amazing photo effects that you can't find anywhere else, like our world-famous Cartoonizer®, oil painting, and Digital Art effects. You can also add extra flair to your photo with our huge library of customizable graphics, frames, overlays, and textures. And if adding text to photos is your thing, our Photo Editor has tons of fonts for you to choose from, including access to Google Fonts and any of the fonts stored on your computer! Taking pictures is fun – shouldn't your photo editor be fun, too?
+                            The website includes 3 main pages: homepage, image editing page, face swap page from two photos. <br />
+                            The homepage is the page below that introduces group information, project overview and some other information. <br />
+                            Image editing page includes functions such as cropping, filtering, adjusting brightness, inserting icons.... <br />
+                            Face swap page will return the swapped photo after you have two step selected the source image
                         </div>
                     </div>
                 </li>
                 <li className="home__info-item" data-aos="fade-right">
-                    <img className="home__info-item-img" src="https://www.befunky.com/images/prismic/15c58e21a80fd14a0518b9d0640305eb479379a5_landing-photo-editor-img-2.png?auto=webp&format=jpg&width=1000" alt="" />
+                    <img className="home__info-item-img" src={InfoImg2} alt="" />
                     <div className="home__info-detail">
                         <div className="home__info-title">
-                            It's Fun
+                            Our Technology
                         </div>
                         <div className="home__info-main">
-                            Fun is literally BeFunky's middle name (no, really! be-FUN-ky) With BeFunky's Photo Editor, you can play with hundreds of amazing photo effects that you can't find anywhere else, like our world-famous Cartoonizer®, oil painting, and Digital Art effects. You can also add extra flair to your photo with our huge library of customizable graphics, frames, overlays, and textures. And if adding text to photos is your thing, our Photo Editor has tons of fonts for you to choose from, including access to Google Fonts and any of the fonts stored on your computer! Taking pictures is fun – shouldn't your photo editor be fun, too?
+                            Regarding Front-end, our team used  <a href="https://reactjs.org/" className="social__link">ReactJS</a>, AOS, HTML, CSS to build website content, visual effects, text. There is also a built-in library pintura to build image editing. <br />
+                            Regarding the Back-end, the team uses Flask to create APIs, other functions use other python libraries such as numpy, facial landmark, cv2, dlib to build
                         </div>
                     </div>
                 </li>
@@ -103,32 +114,32 @@ const Home = () => {
                     <img className="home__info-item-img" src="https://www.befunky.com/images/prismic/15c58e21a80fd14a0518b9d0640305eb479379a5_landing-photo-editor-img-2.png?auto=webp&format=jpg&width=1000" alt="" />
                     <div className="home__info-detail">
                         <div className="home__info-title">
-                            It's Fun
+                            Edit Page
                         </div>
                         <div className="home__info-main">
-                            Fun is literally BeFunky's middle name (no, really! be-FUN-ky) With BeFunky's Photo Editor, you can play with hundreds of amazing photo effects that you can't find anywhere else, like our world-famous Cartoonizer®, oil painting, and Digital Art effects. You can also add extra flair to your photo with our huge library of customizable graphics, frames, overlays, and textures. And if adding text to photos is your thing, our Photo Editor has tons of fonts for you to choose from, including access to Google Fonts and any of the fonts stored on your computer! Taking pictures is fun – shouldn't your photo editor be fun, too?
+                        On this image editing page, you can download and edit with various available tools such as cropping images that can be cropped to each pixel or zooming images to the sizes you want. You can also select some images that have been brightness adjusted, insert built-in icons or draw on the image you are working on. The above functions are considered by our team to be quite complete for an image processing website.
                         </div>
                     </div>
                 </li>
                 <li className="home__info-item" data-aos="flip-up">
-                    <img className="home__info-item-img" src="https://www.befunky.com/images/prismic/15c58e21a80fd14a0518b9d0640305eb479379a5_landing-photo-editor-img-2.png?auto=webp&format=jpg&width=1000" alt="" />
+                    <img className="home__info-item-img" src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
                     <div className="home__info-detail">
                         <div className="home__info-title">
-                            It's Fun
+                            Swap Page
                         </div>
                         <div className="home__info-main">
-                            Fun is literally BeFunky's middle name (no, really! be-FUN-ky) With BeFunky's Photo Editor, you can play with hundreds of amazing photo effects that you can't find anywhere else, like our world-famous Cartoonizer®, oil painting, and Digital Art effects. You can also add extra flair to your photo with our huge library of customizable graphics, frames, overlays, and textures. And if adding text to photos is your thing, our Photo Editor has tons of fonts for you to choose from, including access to Google Fonts and any of the fonts stored on your computer! Taking pictures is fun – shouldn't your photo editor be fun, too?
+                        For the face swap page, you only need to select two photos that only have a single face to perform this function. This function will send a request to the server to return a corresponding image, so it may make you wait for a while. But don't worry because it won't make you wait for a long time because our team has actually tested it and it never takes more than 10 seconds unless the server is down.
                         </div>
                     </div>
                 </li>
                 <li className="home__info-item" data-aos="zoom-in-up">
-                    <img className="home__info-item-img" src="https://www.befunky.com/images/prismic/15c58e21a80fd14a0518b9d0640305eb479379a5_landing-photo-editor-img-2.png?auto=webp&format=jpg&width=1000" alt="" />
+                    <img className="home__info-item-img" src="https://interiordesign.net/wp-content/uploads/2021/11/Interior-Design-Kelly-Behun-Studio-Sofield-SHoP-Architects-8-Home-Office.jpg" alt="" />
                     <div className="home__info-detail">
                         <div className="home__info-title">
-                            It's Fun
+                            Conclusion our website
                         </div>
                         <div className="home__info-main">
-                            Fun is literally BeFunky's middle name (no, really! be-FUN-ky) With BeFunky's Photo Editor, you can play with hundreds of amazing photo effects that you can't find anywhere else, like our world-famous Cartoonizer®, oil painting, and Digital Art effects. You can also add extra flair to your photo with our huge library of customizable graphics, frames, overlays, and textures. And if adding text to photos is your thing, our Photo Editor has tons of fonts for you to choose from, including access to Google Fonts and any of the fonts stored on your computer! Taking pictures is fun – shouldn't your photo editor be fun, too?
+                        This is one of the products that our team finds quite relevant to practice especially in today's 4.0 industry. Famous social networks like <a href="https://www.instagram.com/" className="social__link">Instagram</a>, <a href="https://www.facebook.com/" className="social__link">Facebook</a> also integrate some image processing features on their platforms. However with the site we seem to be dealing with more images than they use. Therefore, we see the trend that young people who want to use this website also make up a large part of the community.
                         </div>
                     </div>
                 </li>
@@ -136,7 +147,7 @@ const Home = () => {
             </ul>
             <div className="home__final" data-aos="flip-left" data-aos-easing="ease-out-cubic">
                 <div className="home__final-title">
-                    BeFunky Photo Editor
+                    BeFunny With Us
                 </div>
                 <button className="home__final-button">
                     <Link to="/edit" className="home__final-link">
