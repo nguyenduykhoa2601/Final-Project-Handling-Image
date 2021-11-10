@@ -1,6 +1,7 @@
 .face__swap{
     max-width: 1140px;
     margin: auto;
+    padding-bottom: 300px;
 }
 
 .face__page-title {
@@ -62,6 +63,7 @@
 .file__input-result{
     display: flex;
     margin: auto;
+    padding-top: 20px;
 }
 
 

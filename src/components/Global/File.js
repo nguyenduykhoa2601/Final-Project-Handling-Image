@@ -4,6 +4,7 @@ import AOS from 'aos'
 import Loading from '../utils/Loading'
 
 import "aos/dist/aos.css"
+import axios from 'axios';
 
 const File = () => {
     const [imageFirst, setImageFirst] = useState(null)
@@ -12,6 +13,7 @@ const File = () => {
     const [imageSecondFile, setImageSecondFile] = useState(null)
     const [imageResult, setImageResult] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [result,setResult] = useState(false)
 
     useEffect(() => {
         AOS.init({
@@ -54,6 +56,38 @@ const File = () => {
         })
     }, [])
 
+    const handleUpload = async(e,image_name1,image_name2) => {
+        e.preventDefault()
+        const formData1 = new FormData();
+        formData1.append("file", imageFirstFile, `${image_name1}.png`);
+        const formData2 = new FormData();
+        formData2.append("file", imageSecondFile, `${image_name2}.png`);
+        try {
+            setLoading(true)
+            await axios.post(`${process.env.REACT_APP_API}/upload`,formData1)
+            await axios.post(`${process.env.REACT_APP_API}/upload`,formData2)
+            setResult(true)
+            setLoading(false)
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+    const handleSubmit = async(e)=>{
+        e.preventDefault()
+        try {
+            setLoading(true)
+            const res = await axios.get(`${process.env.REACT_APP_API}/predict`)
+            setImageResult(res.data)
+            setLoading(false)
+        } catch (error) {
+            alert(error)
+        }
+    }
+    
+
+    if(loading) return <Loading />
+
     return (
         <div className="files__swap">
             <div className="files__action">
@@ -89,15 +123,20 @@ const File = () => {
                 }
             </div>
             {
-                imageResult && 
+                imageResult &&
                 <>
-                <div className="file__title_swapped">Image after Swapped</div>
-                <img className="file__input-result" src={imageSecond} alt="" />
+                    <div className="file__title_swapped">Image after Swapped</div>
+                    <img className="file__input-result" src={imageResult} alt="" />
                 </>
             }
             {
-                imageFirst && imageSecond ?
-                    <button className="files__upload" onClick={() => setImageResult(true)}>Swap</button> : null
+                imageFirst && imageSecond && !result ?
+                    <button type="submit" className="files__upload" onClick={(e)=>handleUpload(e,"img_1","img_2")}>Upload</button>
+                    : null
+            }
+
+            {
+                result && !imageResult &&  <button type="submit" className="files__upload" onClick={(e)=>handleSubmit(e)}>Swap</button>
             }
 
 
