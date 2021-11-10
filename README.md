@@ -2,7 +2,7 @@
 
 This project was build by UIT team (2 members).
 
-# How to running server
+# How to running server ( https://github.com/nguyenduykhoa2601/API-faceswap )
 
 Require python 3. environment on your device
 
