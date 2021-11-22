@@ -1,18 +1,29 @@
-# About Team
+### About Team
 
-This project was build by UIT team (2 members).
+_ This project was build by UIT team (2 members).
 
-# How to running server ( https://github.com/nguyenduykhoa2601/API-faceswap )
+_ Include two functions: editor and swapface
 
-Require python 3. environment on your device
+### Link server : https://github.com/nguyenduykhoa2601/API-faceswap 
 
-In our project, we used "pip" to install all libraries
+_ Requirement: python 3., dlib, opencv, ...
 
-"flask run app.py" to started server.
+_ In our project, we used "pip" to install all libraries
 
-# How to running client
+_ Use command : `python app.py` to run server.
 
-Using npm , clone project and use command "npm install" to install all library
+### How to running client
 
-Using command "npm start" to run project
+_ Requirement: npm, node version from 14. to 16. ( please don't use another version )
+
+_ Use command: `npm install` | `yarn install` to download all libraries
+
+_ Use command : `npm start` | `yarn start` to run client
+
+### Demo UI/UX client without API
+
+https://befunkyuit.netlify.app
+
+
+
 
