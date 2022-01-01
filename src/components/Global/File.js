@@ -12,6 +12,7 @@ const File = () => {
     const [imageFirstFile, setImageFirstFile] = useState(null)
     const [imageSecondFile, setImageSecondFile] = useState(null)
     const [imageResult, setImageResult] = useState(null)
+    const [imageResult1, setImageResult1] = useState(null)
     const [loading, setLoading] = useState(false)
     const [result,setResult] = useState(false)
 
@@ -78,11 +79,45 @@ const File = () => {
         try {
             setLoading(true)
             const res = await axios.get(`${process.env.REACT_APP_API}/predict`)
+            const res1 = await axios.get(`${process.env.REACT_APP_API}/predict1`)
+            setImageResult1(res1.data)
             setImageResult(res.data)
             setLoading(false)
         } catch (error) {
             alert(error)
         }
+    }
+
+    const downloadImage = async () => {
+        var canvas = await document.createElement('canvas');
+        var ctx = await canvas.getContext('2d');
+        var img = await document.getElementById("imgdl");
+        canvas.width = img.width
+        canvas.height = img.height
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        var data = canvas.toDataURL("image/png")
+        window.location.href = data
+        var a = document.createElement('a');
+        a.href = data;
+        a.download = 'download.png';
+        document.body.appendChild(a);
+        a.click();
+    }
+
+    const downloadImage1 = async () => {
+        var canvas = await document.createElement('canvas');
+        var ctx = await canvas.getContext('2d');
+        var img = await document.getElementById("imgdl1");
+        canvas.width = img.width
+        canvas.height = img.height
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        var data = canvas.toDataURL("image/png")
+        window.location.href = data
+        var a = document.createElement('a');
+        a.href = data;
+        a.download = 'download.png';
+        document.body.appendChild(a);
+        a.click();
     }
     
 
@@ -123,10 +158,15 @@ const File = () => {
                 }
             </div>
             {
-                imageResult &&
+                imageResult && imageResult1 &&
                 <>
                     <div className="file__title_swapped">Image after Swapped</div>
-                    <img className="file__input-result" src={imageResult} alt="" />
+                    <div className="file__result-both">
+                        <img id="imgdl" className="file__input-result" src={imageResult} alt="" />
+                        <img id="imgdl1" className="file__input-result" src={imageResult1} alt="" />
+                    </div>
+                    
+                    
                 </>
             }
             {
@@ -139,11 +179,12 @@ const File = () => {
                 result && !imageResult &&  <button type="submit" className="files__upload" onClick={(e)=>handleSubmit(e)}>Swap</button>
             }
 
-
-
-
-
-
+            {
+                imageResult && <button type="submit" className="files__upload" onClick={()=>downloadImage()}>Download Left Image</button>
+            }
+            {
+                imageResult1 && <button type="submit" className="files__upload" onClick={()=>downloadImage1()}>Download Right Image</button>
+            }
 
         </div>
     );
